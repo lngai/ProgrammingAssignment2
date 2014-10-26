@@ -1,6 +1,7 @@
-## Put comments here that give an overall description of what your
-## functions do
-## Write a short comment describing this function
+
+## This function read in a matrix and creates a set of functions for the matrix manipulation into Cache and out of Cache
+## A function list object is generated to be used by other function e.g. mat<-makeCacheMatrix(x)
+
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
   set <- function(y) {
@@ -10,11 +11,14 @@ makeCacheMatrix <- function(x = matrix()) {
   get <- function() x
   setmatrix <- function(matrix) m <<- matrix
   getmatrix <- function() m
+  
+  ##Generate the return as a list object.
   list(set = set, get = get,
        setmatrix = setmatrix,
        getmatrix = getmatrix)
 }
-## Write a short comment describing this function
+## This function get the List object as the input and do the inverse opeartion for the matrix
+## e.g. CacheSolve(mat)
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   m <- x$getmatrix()
